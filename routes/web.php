@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\BillController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,4 +17,6 @@ use App\Http\Controllers\Admin\DashboardController;
 // });
 
 Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
-
+Route::post('/add-bill', [BillController::class, 'addUserBill'])->name('admin.addBill');
+Route::get('/user-bill', [BillController::class, 'getUserBill'])->name('admin.billHistory');
+Route::get('/bill-payment', [BillController::class, 'userBillPayment'])->name('admin.billPayment');

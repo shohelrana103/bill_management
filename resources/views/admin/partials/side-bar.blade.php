@@ -7,10 +7,14 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Add Bill
                 </a>
-                <a class="nav-link" href="{{route('admin.dashboard')}}">
+                <a class="nav-link" href="{{route('admin.billHistory')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Bill History
                 </a>
+                 <!-- <a class="nav-link" href="{{route('admin.billPayment')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Bill Payment History
+                </a> -->
 <!--                 <div class="sb-sidenav-menu-heading">Interface</div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>

@@ -7,7 +7,10 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dashboard</title>
+         <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <!-- select 2 -->
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <link href="{{asset('admin/css/styles.css')}}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -17,7 +20,7 @@
             @include('admin.partials.side-bar');
             <div id="layoutSidenav_content">
                 <main>
-                 
+                  @yield('body_content')
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -33,6 +36,8 @@
                 </footer>
             </div>
         </div>
+         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{asset('admin/js/scripts.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
@@ -40,5 +45,18 @@
         <script src="{{asset('admin/assets/demo/chart-bar-demo.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="{{asset('admin/js/datatables-simple-demo.js')}}"></script>
+         <!-- select 2 -->
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+         <script type="text/javascript">
+         $( ".datepicker" ).datepicker({
+            dateFormat:"yy-m-d"
+         });
+            $(document).ready(function() {
+                $('#select_officer').select2({
+                
+                });
+            });
+        </script>
+
     </body>
 </html>
