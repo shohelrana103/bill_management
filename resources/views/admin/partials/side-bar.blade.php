@@ -11,6 +11,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Bill History
                 </a>
+                <a class="nav-link" href="{{route('admin.paymentHistory')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Payment History
+                </a>
                  <!-- <a class="nav-link" href="{{route('admin.billPayment')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Bill Payment History

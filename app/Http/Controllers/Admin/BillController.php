@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\UserBill;
 use Session;
 use App\User;
+use App\UserPayment;
 class BillController extends Controller
 {
     public function addUserBill(Request $request)
@@ -48,5 +49,21 @@ class BillController extends Controller
     }
     public function userBillPayment(){
         return view('admin.bill-payment-history');
+    }
+    public function userPaymentHistory(Request $request){
+        $all_users = User::all();
+        $user_id = $request->input('user_id');
+        if ($user_id !=null){
+            // return $request->all();
+            $total_bill = UserBill::where('user_id', $user_id)->sum('total_bill');
+            $total_paid = UserPayment::where('user_id', $user_id)->sum('paid_amount');
+            $user = User::find($user_id);
+            return view('admin.payment-history', compact('total_bill', 'total_paid', 'user', 'all_users'));
+            return json_encode( $user_bills );
+        }
+        else{
+            $total_bill=null;
+            return view('admin.payment-history', compact('total_bill', 'all_users'));
+        }
     }
 }
