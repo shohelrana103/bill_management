@@ -16,8 +16,8 @@
                                  <div class="mb-3">
                                     <select class="form-select" aria-label="Default select example" id="select_officer" name="user_id" required>
                                       <option selected value="">Select Officer</option>
-                                       @foreach ($all_users as $user)
-                                      <option value="{{$user->id}}">{{$user->bup_id}}({{$user->name}}) ({{$user->department_id}})</option>
+                                       @foreach ($all_users as $all_user)
+                                      <option value="{{$all_user->id}}">{{$all_user->bup_id}}({{$all_user->name}}) ({{$all_user->department_id}})</option>
                                       @endforeach
                                       <!-- <option value="1">12006(Mazharul Islam Tuhin) (ICT Centre)</option>
                                       <option value="2">121007(Kawser Hossen) (ICT Centre)</option>
@@ -56,6 +56,7 @@
               <th scope="col">Breakfast</th>
               <th scope="col">T-Break</th>
               <th scope="col">Lunch</th>
+              <th scope="col">Other</th>
               <th scope="col">Total</th>
               <th scope="col">Action</th>
             </tr>
@@ -66,7 +67,7 @@
             @endphp
             @foreach($user_bills as $user_bill)
                 @php
-                    $grand_total+=$user_bill->breakfast+$user_bill->tea_break+$user_bill->lunch;
+                    $grand_total+=$user_bill->breakfast+$user_bill->tea_break+$user_bill->lunch+$user_bill->other;
                 @endphp
              <tr>
               <!-- <th scope="row">1</th> -->
@@ -74,7 +75,8 @@
               <td>{{$user_bill->breakfast}}</td>
               <td>{{$user_bill->tea_break}}</td>
               <td>{{$user_bill->lunch}}</td>
-              <td>{{$user_bill->breakfast+$user_bill->tea_break+$user_bill->lunch}}</td>
+              <td>{{$user_bill->other}}</td>
+              <td>{{$user_bill->breakfast+$user_bill->tea_break+$user_bill->lunch+$user_bill->other}}</td>
               <td><a class="btn btn-warning">Edit</a> <a class="btn btn-danger">Delete</a></td>
             </tr>
             @endforeach
@@ -95,8 +97,8 @@
               <td>10</td>
             </tr> -->
             <tr>
-                <th scope="row" colspan="4" class="">Total</th>
-                <td colspan="">{{$grand_total}}</td>
+                <th scope="row" colspan="5" class="">Grand Total</th>
+                <td colspan="" ><span style="font-weight:bold;"> {{$grand_total}}</span></td>
             </tr>
             
           </tbody>

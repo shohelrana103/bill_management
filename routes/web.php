@@ -21,3 +21,5 @@ Route::post('/add-bill', [BillController::class, 'addUserBill'])->name('admin.ad
 Route::get('/user-bill', [BillController::class, 'getUserBill'])->name('admin.billHistory');
 Route::get('/bill-payment', [BillController::class, 'userBillPayment'])->name('admin.billPayment');
 Route::get('/payment-history', [BillController::class, 'userPaymentHistory'])->name('admin.paymentHistory');
+Route::get('/add-manual-paid', [BillController::class, 'addManualPaid'])->name('admin.addManualPaid');
+Route::post('/save-manual-paid', [BillController::class, 'addManualPaidPost'])->name('admin.addManualPaidPost');

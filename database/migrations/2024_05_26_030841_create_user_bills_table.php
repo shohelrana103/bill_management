@@ -20,7 +20,7 @@ class CreateUserBillsTable extends Migration
             $table->float('breakfast', 8, 2)->default(0);
             $table->float('tea_break', 8, 2)->default(0);
             $table->float('lunch', 8, 2)->default(0);
-            $table->float('dinner', 8, 2)->default(0);
+            $table->float('other', 8, 2)->default(0);
             $table->float('total_bill', 8, 2)->default(0);
             $table->timestamps();
         });

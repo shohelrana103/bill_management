@@ -5,11 +5,15 @@
                 <!-- <div class="sb-sidenav-menu-heading">Core</div> -->
                 <a class="nav-link" href="{{route('admin.dashboard')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Add Bill
+                    Bill
                 </a>
                 <a class="nav-link" href="{{route('admin.billHistory')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Bill History
+                </a>
+                <a class="nav-link" href="{{route('admin.addManualPaid')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Manual Paid
                 </a>
                 <a class="nav-link" href="{{route('admin.paymentHistory')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>

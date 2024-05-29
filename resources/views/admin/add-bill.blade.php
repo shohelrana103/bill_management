@@ -22,32 +22,36 @@
                               <option value="3">12103(Md  -->Shohel Rana) (ICT Centre)</option>
                             </select>
                         </div>
-                       
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-floating mb-3">
+                         <div class="form-floating mb-3">
                                 <input class="form-control datepicker" id="bill_date" name="bill_date" type="text" placeholder="Date" autocomplete="off"  required />
                                 <label for="inputDate">Date</label>
-                            </div>
-                            </div>
+                        </div>
+                       
+                        <div class="row">
                             <div class="col-lg-6">
                                <div class="form-floating mb-3">
                                     <input class="form-control" id="breakfast" type="number" name="breakfast" placeholder="name@example.com"  />
                                     <label for="breakfast">Breakfast</label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
+                             <div class="col-lg-6">
                                <div class="form-floating mb-3">
                                     <input class="form-control" id="tea_break" type="number" name="tea_break" placeholder="tea break" />
                                     <label for="tea_break">Tea Break</label>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="lunch" type="number" name="lunch" placeholder="lunch" />
                                     <label for="lunch">Lunch</label>
+                                </div>
+                            </div>
+                             <div class="col-lg-6">
+                               <div class="form-floating mb-3">
+                                    <input class="form-control" id="other" type="number" name="other" placeholder="tea break" />
+                                    <label for="other">Other</label>
                                 </div>
                             </div>
                         </div>

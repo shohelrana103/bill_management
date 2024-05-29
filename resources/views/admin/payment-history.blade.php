@@ -16,8 +16,8 @@
                                  <div class="mb-3">
                                     <select class="form-select" aria-label="Default select example" id="select_officer" name="user_id" required>
                                       <option selected value="">Select Officer</option>
-                                       @foreach ($all_users as $user)
-                                      <option value="{{$user->id}}">{{$user->bup_id}}({{$user->name}}) ({{$user->department_id}})</option>
+                                       @foreach ($all_users as $all_user)
+                                      <option value="{{$all_user->id}}">{{$all_user->bup_id}}({{$all_user->name}}) ({{$all_user->department_id}})</option>
                                       @endforeach
                                     </select>
                                 </div>
