@@ -1,3 +1,6 @@
+@php
+     $usr = Auth::user();
+ @endphp
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
@@ -19,6 +22,21 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Payment History
                 </a>
+                <a class="nav-link" href="{{route('admin.roles.index')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Roles
+                </a>
+                 <!-- @if ($usr->can('role.create') || $usr->can('role.view') ||  $usr->can('role.edit') ||  $usr->can('role.delete')) -->
+                           <!--  <a href="{{route('admin.roles.index')}}"><i class="ti-receipt"></i> <span>Roles</span></a>
+                                  <ul class="collapse {{ Route::is('admin.roles.create') || Route::is('admin.roles.index') || Route::is('admin.roles.edit') || Route::is('admin.roles.show') ? 'in' : '' }}">
+                                     @if ($usr->can('role.view'))
+                                        <li class="{{ Route::is('admin.roles.index')  || Route::is('admin.roles.edit') ? 'active' : '' }}"><a href="{{ route('admin.roles.index') }}">All Roles</a></li>
+                                    @endif
+                                    @if ($usr->can('role.create'))
+                                    <li class="{{ Route::is('admin.roles.create')  ? 'active' : '' }}"><a href="{{ route('admin.roles.create') }}">Create Role</a></li>
+                                    @endif
+                                </ul> -->
+                        <!-- @endif -->
                  <!-- <a class="nav-link" href="{{route('admin.billPayment')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Bill Payment History

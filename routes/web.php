@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BillController;
 use App\Http\Controllers\UserController;
@@ -28,6 +29,7 @@ Route::get('/payment-history', [BillController::class, 'userPaymentHistory'])->n
 Route::get('/add-manual-paid', [BillController::class, 'addManualPaid'])->name('admin.addManualPaid');
 Route::post('/save-manual-paid', [BillController::class, 'addManualPaidPost'])->name('admin.addManualPaidPost');
 Route::get('/load/user', [UserController::class, 'getUserFromApi'])->name('admin.getUserFromApi');
+Route::resource('roles', 'Admin\RolesController', ['names' => 'admin.roles']);
 
 Auth::routes();
 

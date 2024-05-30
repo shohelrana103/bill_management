@@ -34,6 +34,7 @@ class UserController extends Controller
                     'password' => Hash::make($employee['BupNo'])
                 ]
             );
+            $employee->assignRole('GeneralUser');
          
         }
     }
