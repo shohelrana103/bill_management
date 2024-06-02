@@ -6,26 +6,42 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <!-- <div class="sb-sidenav-menu-heading">Core</div> -->
-                <a class="nav-link" href="{{route('admin.dashboard')}}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Bill
-                </a>
-                <a class="nav-link" href="{{route('admin.billHistory')}}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                    Bill History
-                </a>
-                <a class="nav-link" href="{{route('admin.addManualPaid')}}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                    Manual Paid
-                </a>
-                <a class="nav-link" href="{{route('admin.paymentHistory')}}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                    Payment History
-                </a>
-                <a class="nav-link" href="{{route('admin.roles.index')}}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                    Roles
-                </a>
+                 @if ($usr->can('bill.add'))
+                    <a class="nav-link" href="{{route('admin.dashboard')}}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Bill
+                    </a>
+                @endif
+                @if ($usr->can('bill.view') || $usr->can('bill.edit') || $usr->can('bill.delete') )
+                    <a class="nav-link" href="{{route('admin.billHistory')}}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Bill History
+                    </a>
+                @endif
+                @if ($usr->can('payment.add_manual_payment'))
+                    <a class="nav-link" href="{{route('admin.addManualPaid')}}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Manual Paid
+                    </a>
+                @endif
+                @if ($usr->can('payment.view') || $usr->can('payment.edit') || $usr->can('payment.delete') )
+                    <a class="nav-link" href="{{route('admin.paymentHistory')}}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Payment History
+                    </a>
+                @endif
+                @if ($usr->can('role.create') || $usr->can('role.view') || $usr->can('role.edit') || $usr->can('role.delete') )
+                    <a class="nav-link" href="{{route('admin.roles.index')}}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Roles
+                    </a>
+                @endif
+                @if ($usr->can('payment.pay_bill'))
+                    <a class="nav-link" href="{{route('admin.getUserDue')}}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Pay Bill
+                    </a>
+                @endif
                  <!-- @if ($usr->can('role.create') || $usr->can('role.view') ||  $usr->can('role.edit') ||  $usr->can('role.delete')) -->
                            <!--  <a href="{{route('admin.roles.index')}}"><i class="ti-receipt"></i> <span>Roles</span></a>
                                   <ul class="collapse {{ Route::is('admin.roles.create') || Route::is('admin.roles.index') || Route::is('admin.roles.edit') || Route::is('admin.roles.show') ? 'in' : '' }}">

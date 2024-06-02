@@ -48,7 +48,8 @@ class RolePermissionSeeder extends Seeder
                     'payment.view',
                     'payment.edit',
                     'payment.delete',
-                    'payment.history'
+                    'payment.history',
+                    'payment.pay_bill'
                 ]
             ],
             [

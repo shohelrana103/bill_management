@@ -8,6 +8,7 @@ use App\UserBill;
 use Session;
 use App\User;
 use App\UserPayment;
+use Auth;
 class BillController extends Controller
 {
     public function addUserBill(Request $request)
@@ -84,5 +85,10 @@ class BillController extends Controller
         ]);
         Session::flash('message', "Successfully Added");
         return redirect()->back();
+    }
+    public function getUserDue(){
+        $total_bill = UserBill::where('user_id', Auth::user()->id)->sum('total_bill');
+        $user_due = UserPayment::where('user_id', Auth::user()->id)->sum('paid_amount');
+        return view('user.pay-bill', compact('user_due'));
     }
 }

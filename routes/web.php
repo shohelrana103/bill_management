@@ -20,16 +20,19 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('login');
 });
+Route::group(['prefix'=>'admin', 'middleware' => ['auth:web']], function(){
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-Route::post('/add-bill', [BillController::class, 'addUserBill'])->name('admin.addBill');
-Route::get('/user-bill', [BillController::class, 'getUserBill'])->name('admin.billHistory');
-Route::get('/bill-payment', [BillController::class, 'userBillPayment'])->name('admin.billPayment');
-Route::get('/payment-history', [BillController::class, 'userPaymentHistory'])->name('admin.paymentHistory');
-Route::get('/add-manual-paid', [BillController::class, 'addManualPaid'])->name('admin.addManualPaid');
-Route::post('/save-manual-paid', [BillController::class, 'addManualPaidPost'])->name('admin.addManualPaidPost');
-Route::get('/load/user', [UserController::class, 'getUserFromApi'])->name('admin.getUserFromApi');
-Route::resource('roles', 'Admin\RolesController', ['names' => 'admin.roles']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::post('/add-bill', [BillController::class, 'addUserBill'])->name('admin.addBill');
+    Route::get('/user-bill', [BillController::class, 'getUserBill'])->name('admin.billHistory');
+    Route::get('/bill-payment', [BillController::class, 'userBillPayment'])->name('admin.billPayment');
+    Route::get('/payment-history', [BillController::class, 'userPaymentHistory'])->name('admin.paymentHistory');
+    Route::get('/add-manual-paid', [BillController::class, 'addManualPaid'])->name('admin.addManualPaid');
+    Route::post('/save-manual-paid', [BillController::class, 'addManualPaidPost'])->name('admin.addManualPaidPost');
+    Route::get('/load/user', [UserController::class, 'getUserFromApi'])->name('admin.getUserFromApi');
+    Route::resource('roles', 'Admin\RolesController', ['names' => 'admin.roles']);
+    Route::get('/pay-bill', [BillController::class, 'getUserDue'])->name('admin.getUserDue');
+});
 
 Auth::routes();
 
