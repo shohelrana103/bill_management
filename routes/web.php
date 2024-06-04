@@ -20,7 +20,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('login');
 });
-Route::group(['prefix'=>'admin', 'middleware' => ['auth:web']], function(){
+Route::group(['prefix'=>'', 'middleware' => ['auth:web']], function(){
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::post('/add-bill', [BillController::class, 'addUserBill'])->name('admin.addBill');

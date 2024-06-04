@@ -8,7 +8,7 @@ use App\User;
 class DashboardController extends Controller
 {
     public function index(){
-        $all_users = User::all();
+        $all_users = User::where('emp_type_id', '!=', 3)->get();
         return view('admin.add-bill', compact('all_users'));
     }
 }

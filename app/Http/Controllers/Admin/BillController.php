@@ -37,7 +37,7 @@ class BillController extends Controller
         return redirect()->back();
     }
     public function getUserBill(Request $request){
-        $all_users = User::all();
+        $all_users = User::where('emp_type_id', '!=', 3)->get();
         $user_id = $request->input('user_id');
         if ($user_id !=null){
             // return $request->all();
@@ -54,7 +54,7 @@ class BillController extends Controller
         return view('admin.bill-payment-history');
     }
     public function userPaymentHistory(Request $request){
-        $all_users = User::all();
+        $all_users = User::where('emp_type_id', '!=', 3)->get();
         $user_id = $request->input('user_id');
         if ($user_id !=null){
             // return $request->all();
@@ -71,7 +71,7 @@ class BillController extends Controller
     }
 
     public function addManualPaid(){
-        $all_users = User::all();
+        $all_users = User::where('emp_type_id', '!=', 3)->get();
         return view('admin.add-manual-paid', compact('all_users'));
     } 
     public function addManualPaidPost(Request $request){
@@ -88,7 +88,8 @@ class BillController extends Controller
     }
     public function getUserDue(){
         $total_bill = UserBill::where('user_id', Auth::user()->id)->sum('total_bill');
-        $user_due = UserPayment::where('user_id', Auth::user()->id)->sum('paid_amount');
+        $user_paid = UserPayment::where('user_id', Auth::user()->id)->sum('paid_amount');
+        $user_due = $total_bill-$user_paid;
         return view('user.pay-bill', compact('user_due'));
     }
 }
